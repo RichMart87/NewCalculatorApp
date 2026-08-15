@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-A simple C# console application that calculates the sum of all integers in a specified range.
+A simple C# console application that calculates the sum of a specified quantity of numbers entered by the user.
 
 ## Table of contents
 
@@ -11,7 +11,7 @@ A simple C# console application that calculates the sum of all integers in a spe
 - [Requirements](#requirements)
 - [Build & Run](#build--run)
 - [Usage](#usage)
-- [Examples](#examples)
+- [Interactive example](#interactive-example)
 - [Behavior notes](#behavior-notes)
 - [License](#license)
 - [Contributing](#contributing)
@@ -19,13 +19,13 @@ A simple C# console application that calculates the sum of all integers in a spe
 
 ## About
 
-NewCalculatorApp is a small C# learning project that demonstrates reading user input, basic validation, and computing the sum of integers between two endpoints (inclusive). It's suitable as an introductory example for people learning .NET console applications.
+NewCalculatorApp is a small C# learning project that demonstrates reading user input, basic validation, and computing the sum of a set of numbers entered by the user.
 
 ## Features
 
-- Compute the sum of all integers between a start and end value (inclusive).
-- Handles negative numbers and zero.
-- Simple console prompts and clear output.
+- Ask the user how many numbers they want to add (between 2 and 12).
+- Prompt the user to enter each number (each must be between -1000 and 1000).
+- Compute and print the total sum.
 
 ## Requirements
 
@@ -34,61 +34,64 @@ NewCalculatorApp is a small C# learning project that demonstrates reading user i
 
 ## Build & Run
 
-1. Clone the repository:
+From the repository root run:
 
-   ```bash
-   git clone https://github.com/RichMart87/NewCalculatorApp.git
-   cd NewCalculatorApp
-   ```
+```bash
+# build the solution
+dotnet build
 
-2. Build the project:
+# run the console app using the project file
+dotnet run --project NewCalculatorApp/NewCalculatorApp.csproj
+```
 
-   ```bash
-   dotnet build
-   ```
-
-3. Run the project (from the project directory or specify the .csproj):
-
-   ```bash
-   dotnet run --project ./NewCalculatorApp.csproj
-   ```
-
-   If the repository contains a single console project at the root, running `dotnet run` from the repository root will also work.
+Running `dotnet run` from the repository root without the `--project` option may not work because the project lives in the `NewCalculatorApp/` subfolder.
 
 ## Usage
 
-The app prompts for two integers: a start value and an end value. It then calculates and prints the sum of all integers from start to end, inclusive.
+This application is interactive and does not accept command-line arguments. When you run it, it:
 
-If the application supports command-line arguments (check the code), you can run it like:
+1. Prints a small header "Calculator App".
+2. Prompts: "How many numbers do you want to add together? (Enter a value between 2 and 12):" — enter an integer between 2 and 12.
+3. Repeatedly prompts: "Enter a number value:" for the specified quantity. Each number must be between -1000 and 1000.
+4. After all values are entered the program prints the total as: "Total: {sum}" and waits for you to press ENTER to end the program.
 
-```bash
-# Example assuming the app accepts two arguments: start end
-dotnet run -- 1 10
-# Output: Sum of numbers from 1 to 10 is: 55
-```
-
-## Examples
-
-Interactive example:
+If you enter a quantity outside 2..12 the program prints an error like:
 
 ```
-Enter start: 1
-Enter end: 10
-Sum of numbers from 1 to 10 is: 55
+Quantity, <value>, is not within range of 2 and 12. Re-enter the value.
 ```
 
-Negative-range example:
+If you enter a number outside -1000..1000 the program prints an error like:
 
 ```
-Enter start: -2
-Enter end: 2
-Sum of numbers from -2 to 2 is: 0
+Input number, <value>, is not within range of -1000 and 1000. Re-enter value.
+```
+
+## Interactive example
+
+Here is an example session showing the exact prompts the program prints (user input shown after each prompt):
+
+```
+Calculator App
+
+How many numbers do you want to add together? (Enter a value between 2 and 12): 3
+
+Enter a number value: 10
+
+Enter a number value: 20
+
+Enter a number value: 5
+
+Total: 35
+
+Press ENTER end program.
 ```
 
 ## Behavior notes
 
-- If the start value is greater than the end value, the program may either swap the values or return a result based on the implementation. Review the code to see how this case is handled and modify it if you want a specific behavior.
-- Very large ranges can produce sums that exceed a 32-bit integer — consider using 64-bit integers (long) if needed.
+- Quantity limits: the program requires the number of values to be between 2 and 12.
+- Value limits: each entered value must be between -1000 and 1000.
+- The program uses double precision for input and summation; for extremely large inputs you may want to adjust types or add overflow checks.
 
 ## License
 
@@ -109,4 +112,4 @@ Typical workflow:
 
 Maintainer: RichMart87 (https://github.com/RichMart87)
 
-If you'd like further changes (add CI, code examples tied to the real entrypoint, or shorten the README), tell me what to include and I'll update it.
+If you'd like further changes (add CI, more examples, or a shorter README), tell me what to include and I'll update it.
