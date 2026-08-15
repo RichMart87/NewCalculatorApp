@@ -1,5 +1,7 @@
 # NewCalculatorApp
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 A simple C# console application that calculates the sum of all integers in a specified range.
 
 ## Table of contents
@@ -11,8 +13,8 @@ A simple C# console application that calculates the sum of all integers in a spe
 - [Usage](#usage)
 - [Examples](#examples)
 - [Behavior notes](#behavior-notes)
-- [Contributing](#contributing)
 - [License](#license)
+- [Contributing](#contributing)
 - [Contact](#contact)
 
 ## About
@@ -88,6 +90,10 @@ Sum of numbers from -2 to 2 is: 0
 - If the start value is greater than the end value, the program may either swap the values or return a result based on the implementation. Review the code to see how this case is handled and modify it if you want a specific behavior.
 - Very large ranges can produce sums that exceed a 32-bit integer — consider using 64-bit integers (long) if needed.
 
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](./LICENSE) file for details.
+
 ## Contributing
 
 Contributions are welcome! Please open issues for bugs or feature ideas and send pull requests for changes.
@@ -99,12 +105,8 @@ Typical workflow:
 3. Commit your changes: `git commit -m "Describe your change"`
 4. Push and open a pull request
 
-## License
-
-No license specified. If you'd like a license (for example MIT), tell me which one and I can add a LICENSE file.
-
 ## Contact
 
 Maintainer: RichMart87 (https://github.com/RichMart87)
 
-If you'd like adjustments (shorter/longer README, add badges, CI instructions, or a LICENSE file), tell me what to include and I'll update it.
+If you'd like further changes (add CI, code examples tied to the real entrypoint, or shorten the README), tell me what to include and I'll update it.
